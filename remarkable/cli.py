@@ -24,7 +24,7 @@ log = logging.getLogger(__name__)
 
 
 def main():
-    arguments = docopt(__doc__, version=changes.__version__)
+    arguments = docopt(__doc__, version=remarkable.__version__)
     debug = arguments['--debug']
     logging.basicConfig(level=logging.DEBUG if debug else logging.INFO)
     log.debug('arguments: %s', arguments)
