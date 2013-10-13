@@ -2,14 +2,11 @@
 remarkable.
 
 Usage:
-  remarkable [options] another-command <param>
   remarkable [options] remark <path-to-markdown-file>
 
   remarkable -h | --help
 
 Options:
-  --kw-arg=<kw>         Keyword option description.
-  -b --boolean          Boolean option description.
   --debug               Debug.
 
   -h --help             Show this screen.
