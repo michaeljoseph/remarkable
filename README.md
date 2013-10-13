@@ -23,7 +23,7 @@ Install `remarkable`:
 
 ## Documentation
 
-[API Documentation][http://remarkable.rtfd.org]
+[API Documentation](http://remarkable.rtfd.org)
 
 ## Testing
 
