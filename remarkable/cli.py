@@ -39,7 +39,10 @@ def main():
 
 
 def render_remark(markdown):
-    loader = PackageLoader('remarkable', 'templates')
-    env = Environment(loader=loader)
-    template = env.get_template('remark.html')
-    return template.render({'markdown': markdown})
+    return render_template('remark.html', markdown=markdown)
+
+
+def render_template(template_name, context):
+    return Environment(
+        loader=PackageLoader('remarkable', 'templates')
+    ).get_template(template_name).render(context)
