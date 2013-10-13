@@ -1,5 +1,15 @@
 # [Changelog](https://github.com/michaeljoseph/remarkable/releases)
 
+## [0.0.2](https://github.com/michaeljoseph/remarkable/compare/0.0.1...0.0.2)
+
+* [c35a20e](https://github.com/michaeljoseph/remarkable/commit/c35a20e) Require linting and lint fixes
+* [df1be25](https://github.com/michaeljoseph/remarkable/commit/df1be25) We need Jinja
+* [94a88a1](https://github.com/michaeljoseph/remarkable/commit/94a88a1) Refactor and test remark rendering
+* [654f469](https://github.com/michaeljoseph/remarkable/commit/654f469) Rm boilerplate function
+* [300b811](https://github.com/michaeljoseph/remarkable/commit/300b811) Dedent markdown
+* [ba04f18](https://github.com/michaeljoseph/remarkable/commit/ba04f18) Refactor template rendering
+* [b8919a0](https://github.com/michaeljoseph/remarkable/commit/b8919a0) Fix manifest
+
 ## 0.0.1 
 
 * [90cb917](https://github.com/michaeljoseph/remarkable/commit/90cb917) Add changes
