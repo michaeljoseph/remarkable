@@ -13,6 +13,7 @@ setup(
     package_dir={'remarkable': 'remarkable'},
     include_package_data=True,
     install_requires=[
+        'Jinja2 < 3.0.0',
         'docopt < 1.0.0',
     ],
     entry_points={

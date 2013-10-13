@@ -17,9 +17,9 @@ class: center, middle, inverse
 ]
 ---
 layout: false
-background-image: url(https://raw.github.com/michaeljoseph/application-to-platform/gh-pages/images/yola-logo.png)
+background-image: url(https://raw.github.com/michaeljoseph/images/yola.png)
 .large[
-![avatar](https://raw.github.com/michaeljoseph/application-to-platform/gh-pages/images/avatar.png)
+![avatar](https://raw.github.com/michaeljoseph/images/avatar.png)
 michaeljoseph   @github     @twitter
 ]
 ???
@@ -32,7 +32,8 @@ michaeljoseph   @github     @twitter
 
 - crappy slides: squirrel (show remark / reveal)
 
-- we're hiring, let me convince you / swimming the recruitment and hiring manager infested nerdpool during the break
+- we're hiring, let me convince you / swimming the recruitment and
+hiring manager infested nerdpool during the break
 we have business cards
 ]
 ---
