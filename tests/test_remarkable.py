@@ -40,16 +40,7 @@ we have business cards
 """
 
 
-class TestRemarkable(BaseTestCase):
-
-    def setUp(self):
-        self.example_file = 'atp.md'
-        with open(self.example_file, 'w') as f:
-            f.write(MARKDOWN)
-
-    def tearDown(self):
-        os.remove(self.example_file)
-        os.remove('%s.html' % self.example_file)
+class TestRemarkTestCase(BaseTestCase):
 
     def test_remark(self):
         sys.argv = 'remarkable remark atp.md'.split(' ')
