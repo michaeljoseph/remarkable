@@ -11,3 +11,11 @@ class TestRemarkTestCase(BaseTestCase):
         sys.argv = 'remarkable remark atp.md'.split(' ')
         cli.main()
         self.assertTrue(os.path.exists('%s.html' % self.example_file))
+
+
+class TestRevealTestCase(BaseTestCase):
+
+    def test_reveal(self):
+        sys.argv = 'remarkable reveal atp.md'.split(' ')
+        cli.main()
+        self.assertTrue(os.path.exists('%s.html' % self.example_file))
