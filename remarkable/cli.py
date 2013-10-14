@@ -42,7 +42,7 @@ def write_file(file_name, content):
 def remark(arguments):
     file_name = arguments['<path-to-markdown-file>']
     html = render_template(
-        'remark.html',
+        'remark/index.html',
         dict(markdown=read_file(file_name)),
     )
     write_file('%s.html' % file_name, html)
@@ -52,12 +52,11 @@ def reveal(arguments):
     file_name = arguments['<path-to-markdown-file>']
     deck = Deck('title', read_file(file_name))
 
-    html = render_template(
-        'reveal.html',
+    output_directory = render_template_directory(
+        'reveal',
         dict(slides=deck.slides),
+        arguments['<output-directory>']
     )
-    write_file('%s.html' % file_name, html)
-
 
 def main():
     arguments = docopt(__doc__, version=remarkable.__version__)
