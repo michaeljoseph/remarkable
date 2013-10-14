@@ -3,6 +3,7 @@ remarkable.
 
 Usage:
   remarkable [options] remark <path-to-markdown-file>
+  remarkable [options] reveal <path-to-markdown-file>
 
   remarkable -h | --help
 
@@ -41,13 +42,13 @@ def remark(arguments):
     file_name = arguments['<path-to-markdown-file>']
     html_file_name = '%s.html' % file_name
 
+def reveal(arguments):
+    file_name = arguments['<path-to-markdown-file>']
     html = render_template(
         'remark.html',
-        dict(markdown=open(file_name).read())
+        dict(markdown=read_file(file_name)),
     )
-    with open(html_file_name, 'w') as html_file:
-        html_file.write(html)
-    log.info('Created %s' % html_file_name)
+    write_file('%s.html' % file_name, html)
 
 
 def main():
@@ -57,5 +58,11 @@ def main():
         level=logging.DEBUG if arguments['--debug'] else logging.INFO
     )
     log.debug('arguments: %s', arguments)
+
+    commands = ['remark', 'reveal']
+    for command in commands:
+        if arguments[command]:
+            globals()[command](arguments)
+
     if arguments['remark']:
         remark(arguments)
