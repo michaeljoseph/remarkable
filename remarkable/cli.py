@@ -16,6 +16,7 @@ import logging
 
 from docopt import docopt
 from jinja2 import Environment, PackageLoader
+from snide import Deck
 
 import remarkable
 
@@ -49,9 +50,11 @@ def remark(arguments):
 
 def reveal(arguments):
     file_name = arguments['<path-to-markdown-file>']
+    deck = Deck('title', read_file(file_name))
+
     html = render_template(
         'remark.html',
-        dict(markdown=read_file(file_name)),
+        dict(slides=deck.slides),
     )
     write_file('%s.html' % file_name, html)
 
