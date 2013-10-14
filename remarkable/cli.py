@@ -24,7 +24,7 @@ log = logging.getLogger(__name__)
 
 def render_template(template_name, context):
     return Environment(
-        loader=PackageLoader('remarkable', 'templates')
+        loader=PackageLoader('remarkable')
     ).get_template(template_name).render(context)
 
 
