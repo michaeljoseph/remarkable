@@ -53,7 +53,7 @@ def reveal(arguments):
     deck = Deck('title', read_file(file_name))
 
     html = render_template(
-        'remark.html',
+        'reveal.html',
         dict(slides=deck.slides),
     )
     write_file('%s.html' % file_name, html)
