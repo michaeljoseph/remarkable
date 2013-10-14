@@ -40,7 +40,12 @@ def write_file(file_name, content):
 
 def remark(arguments):
     file_name = arguments['<path-to-markdown-file>']
-    html_file_name = '%s.html' % file_name
+    html = render_template(
+        'remark.html',
+        dict(markdown=read_file(file_name)),
+    )
+    write_file('%s.html' % file_name, html)
+
 
 def reveal(arguments):
     file_name = arguments['<path-to-markdown-file>']
