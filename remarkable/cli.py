@@ -27,6 +27,16 @@ def render_template(template_name, context):
     ).get_template(template_name).render(context)
 
 
+def read_file(file_name):
+    return open(file_name).read().decode('utf-8')
+
+
+def write_file(file_name, content):
+    with open(file_name, 'w') as html_file:
+        html_file.write(content.encode('utf-8'))
+    log.info('Created %s' % file_name)
+
+
 def remark(arguments):
     file_name = arguments['<path-to-markdown-file>']
     html_file_name = '%s.html' % file_name
