@@ -13,6 +13,7 @@ Options:
   -h --help             Show this screen.
 """
 import logging
+import shutil
 
 from docopt import docopt
 from jinja2 import Environment, PackageLoader
@@ -27,6 +28,25 @@ def render_template(template_name, context):
     return Environment(
         loader=PackageLoader('remarkable')
     ).get_template(template_name).render(context)
+
+
+def render_template_directory(directory_name, context, output_directory):
+    # copy support files to output directory
+    template_directory_path = (
+        '%s/templates/%s' %
+        (remarkable.__path__[0], directory_name)
+    )
+
+    shutil.copytree(
+        template_directory_path,
+        output_directory,
+    )
+
+    # write index to output directory
+    write_file(
+        '%s/index.html' % output_directory,
+        render_template('%s/index.html' % directory_name, context),
+    )
 
 
 def read_file(file_name):
