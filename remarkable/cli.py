@@ -71,6 +71,3 @@ def main():
     for command in commands:
         if arguments[command]:
             globals()[command](arguments)
-
-    if arguments['remark']:
-        remark(arguments)
