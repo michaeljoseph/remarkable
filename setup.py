@@ -15,6 +15,7 @@ setup(
     install_requires=[
         'Jinja2 < 3.0.0',
         'docopt < 1.0.0',
+        'snide < 1.0.0',
     ],
     entry_points={
         'console_scripts': [
