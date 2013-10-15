@@ -8,14 +8,26 @@ from . import BaseTestCase
 class TestRemarkTestCase(BaseTestCase):
 
     def test_remark(self):
-        sys.argv = 'remarkable remark atp.md foo'.split(' ')
+        sys.argv = ('remarkable remark %s' % self.example_file).split(' ')
         cli.main()
-        self.assertTrue(os.path.exists('%s.html' % self.example_file))
+        self.assertTrue(os.path.exists('remark.html'))
 
 
 class TestRevealTestCase(BaseTestCase):
+    title = 'Application To Platform'
+    presentation_index = '%s/index.html' % title
 
     def test_reveal(self):
-        sys.argv = 'remarkable reveal atp.md foo'.split(' ')
+        sys.argv = [
+            'remarkable',
+            'reveal',
+            '--title=%s' % self.title,
+            self.example_file,
+        ]
         cli.main()
-        self.assertTrue(os.path.exists('%s.html' % self.example_file))
+        self.assertTrue(os.path.exists(self.presentation_index))
+
+    def tearDown(self):
+        super(TestRevealTestCase, self).tearDown()
+        if os.path.exists(self.presentation_index):
+            os.remove(self.presentation_index)

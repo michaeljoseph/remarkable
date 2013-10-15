@@ -38,12 +38,14 @@ we have business cards
 
 
 class BaseTestCase(TestCase):
+    example_file = 'atp.md'
 
     def setUp(self):
-        self.example_file = 'atp.md'
         with open(self.example_file, 'w') as f:
             f.write(MARKDOWN)
 
     def tearDown(self):
         os.remove(self.example_file)
-        os.remove('%s.html' % self.example_file)
+        for filename in ['%s.html' % self.example_file, 'remark.html']:
+            if os.path.exists(filename):
+                os.remove(filename)
