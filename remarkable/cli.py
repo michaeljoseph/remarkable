@@ -79,7 +79,6 @@ def render_template_directory(deck):
     return output_directory
 
 
-
 def read_file(file_name):
     return open(file_name).read().decode('utf-8')
 
