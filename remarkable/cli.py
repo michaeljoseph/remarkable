@@ -33,7 +33,6 @@ def render_template(template_name, context):
     ).get_template(template_name).render(context)
 
 
-def render_template_directory(directory_name, context, output_directory):
 def ask(question):
     '''Display a Y/n question prompt, and return a boolean'''
     while True:
@@ -92,12 +91,16 @@ def write_file(file_name, content):
 
 
 def remark(arguments):
-    file_name = arguments['<path-to-markdown-file>']
     html = render_template(
         'remark/index.html',
-        dict(markdown=read_file(file_name)),
+        dict(markdown=read_file(arguments['<path-to-markdown-file>'])),
     )
-    write_file('%s.html' % file_name, html)
+
+    title = arguments['--title']
+    write_file(
+        '%s.html' % (title if title else 'remark'),
+        html,
+    )
 
 
 def reveal(arguments):
