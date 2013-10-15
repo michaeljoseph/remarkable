@@ -5,6 +5,8 @@
 [![# of downloads](https://pypip.in/d/remarkable/badge.png)](https://crate.io/packages/remarkable?version=latest)
 [![code coverage](https://coveralls.io/repos/michaeljoseph/remarkable/badge.png?branch=master)](https://coveralls.io/r/michaeljoseph/remarkable?branch=master)
 
+![remarkable](https://github.com/michaeljoseph/remarkable/raw/master/resources/remarkable.jpg)
+
 ## Overview
 
 A mashup of http://lab.hakim.se/reveal-js and http://remarkjs.com
