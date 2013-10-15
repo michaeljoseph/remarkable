@@ -14,7 +14,9 @@ Options:
   -h --help             Show this screen.
 """
 import logging
+import os
 import shutil
+import sys
 
 from docopt import docopt
 from jinja2 import Environment, PackageLoader
@@ -32,6 +34,19 @@ def render_template(template_name, context):
 
 
 def render_template_directory(directory_name, context, output_directory):
+def ask(question):
+    '''Display a Y/n question prompt, and return a boolean'''
+    while True:
+        print
+        input_ = raw_input('%s [Y/n] ' % question)
+        input_ = input_.strip().lower()
+        if input_ in ('y', 'yes', ''):
+            return True
+        if input_ in ('n', 'no'):
+            return False
+        print('Invalid selection')
+
+
 def render_template_directory(deck):
     output_directory = deck.title
 
