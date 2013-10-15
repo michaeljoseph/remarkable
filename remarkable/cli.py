@@ -2,8 +2,8 @@
 remarkable.
 
 Usage:
-  remarkable [options] remark <path-to-markdown-file> <output-directory>
-  remarkable [options] reveal <path-to-markdown-file> <output-directory>
+  remarkable [options] remark <path-to-markdown-file>
+  remarkable [options] reveal <path-to-markdown-file>
 
   remarkable -h | --help
 
