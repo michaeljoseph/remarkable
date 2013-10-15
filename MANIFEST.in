@@ -1,1 +1,2 @@
 include README.md CHANGELOG.md LICENSE
+recursive-include remarkable/templates *
