@@ -19,7 +19,31 @@ Install `remarkable`:
 
 ## CLI
 
->> docopt
+Run the cli:
+
+```
+remarkable.
+
+Usage:
+  remarkable [options] remark <path-to-markdown-file> [<title>]
+  remarkable [options] reveal <path-to-markdown-file> <title>
+
+  remarkable -h | --help
+
+Options:
+  --debug               Debug.
+
+  -h --help             Show this screen.
+```
+
+Example:
+```
+$ remarkable remark application-to-platform.md
+INFO:remarkable.cli:Created remark.html
+
+$ remarkable reveal application-to-platform.md application-to-platform
+INFO:remarkable.cli:Created application-to-platform/index.html
+```
 
 ## Documentation
 

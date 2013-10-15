@@ -5,53 +5,29 @@ from remarkable import cli
 from . import BaseTestCase
 
 
-MARKDOWN = """
-name: inverse
-layout: true
-class: center, middle, inverse
----
-# Application To Platform
-.footnote[
-    [How we used Python to scale Yola]
-    (https://github.com/michaeljoseph/application-to-platform)
-]
----
-layout: false
-background-image: url(https://raw.github.com/michaeljoseph/images/yola.png)
-.large[
-![avatar](https://raw.github.com/michaeljoseph/images/avatar.png)
-michaeljoseph   @github     @twitter
-]
-???
-.small[
-# excuses
-
-- false pretences:  backup speaker
-
-- 4 day talk
-
-- crappy slides: squirrel (show remark / reveal)
-
-- we're hiring, let me convince you / swimming the recruitment and
-hiring manager infested nerdpool during the break
-we have business cards
-]
----
-"""
-
-
-class TestRemarkable(BaseTestCase):
-
-    def setUp(self):
-        self.example_file = 'atp.md'
-        with open(self.example_file, 'w') as f:
-            f.write(MARKDOWN)
-
-    def tearDown(self):
-        os.remove(self.example_file)
-        os.remove('%s.html' % self.example_file)
+class TestRemarkTestCase(BaseTestCase):
 
     def test_remark(self):
-        sys.argv = 'remarkable remark atp.md'.split(' ')
+        sys.argv = ('remarkable remark %s' % self.example_file).split(' ')
         cli.main()
-        self.assertTrue(os.path.exists('%s.html' % self.example_file))
+        self.assertTrue(os.path.exists('remark.html'))
+
+
+class TestRevealTestCase(BaseTestCase):
+    title = 'Application To Platform'
+    presentation_index = '%s/index.html' % title
+
+    def test_reveal(self):
+        sys.argv = [
+            'remarkable',
+            'reveal',
+            self.example_file,
+            self.title,
+        ]
+        cli.main()
+        self.assertTrue(os.path.exists(self.presentation_index))
+
+    def tearDown(self):
+        super(TestRevealTestCase, self).tearDown()
+        if os.path.exists(self.presentation_index):
+            os.remove(self.presentation_index)
