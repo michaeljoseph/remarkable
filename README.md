@@ -32,6 +32,7 @@ Usage:
 
 Options:
   --debug               Debug.
+  --title=<title>       The title of the presentation
 
   -h --help             Show this screen.
 ```
