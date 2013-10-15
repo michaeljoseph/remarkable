@@ -1,5 +1,36 @@
 # [Changelog](https://github.com/michaeljoseph/remarkable/releases)
 
+## [0.1.0](https://github.com/michaeljoseph/remarkable/compare/0.0.2...0.1.0)
+
+* [26fc527](https://github.com/michaeljoseph/remarkable/commit/26fc527) Update tests
+* [d6d3c46](https://github.com/michaeljoseph/remarkable/commit/d6d3c46) Title is required for reveal and optional for remark
+* [5fa36ed](https://github.com/michaeljoseph/remarkable/commit/5fa36ed) Linting
+* [a2d4e35](https://github.com/michaeljoseph/remarkable/commit/a2d4e35) Update cli usage in readme
+* [be96f92](https://github.com/michaeljoseph/remarkable/commit/be96f92) Update tests
+* [fc087b5](https://github.com/michaeljoseph/remarkable/commit/fc087b5) Update remark command
+* [b6ae6a2](https://github.com/michaeljoseph/remarkable/commit/b6ae6a2) Prompt for output directory deletion permission
+* [ad2029d](https://github.com/michaeljoseph/remarkable/commit/ad2029d) Simplify reveal command
+* [1f576be](https://github.com/michaeljoseph/remarkable/commit/1f576be) Remove output directory option
+* [f6c85fb](https://github.com/michaeljoseph/remarkable/commit/f6c85fb) Support for rendering a template directory
+* [9354d98](https://github.com/michaeljoseph/remarkable/commit/9354d98) Update remark command with new template location and support for output directory
+* [5cf369c](https://github.com/michaeljoseph/remarkable/commit/5cf369c) pep8
+* [8fcd272](https://github.com/michaeljoseph/remarkable/commit/8fcd272) Add output directory param
+* [b853215](https://github.com/michaeljoseph/remarkable/commit/b853215) Standardise remark template
+* [8c43443](https://github.com/michaeljoseph/remarkable/commit/8c43443) Add reveal support files
+* [fc36c96](https://github.com/michaeljoseph/remarkable/commit/fc36c96) Cleanup
+* [e6897fc](https://github.com/michaeljoseph/remarkable/commit/e6897fc) Correct template name
+* [6acea1c](https://github.com/michaeljoseph/remarkable/commit/6acea1c) Parse slides with snide and pass as context
+* [53adf6b](https://github.com/michaeljoseph/remarkable/commit/53adf6b) Add reveal slide markup
+* [88a7fbe](https://github.com/michaeljoseph/remarkable/commit/88a7fbe) Update README with cli usage
+* [1762afa](https://github.com/michaeljoseph/remarkable/commit/1762afa) Add reveal template
+* [695599f](https://github.com/michaeljoseph/remarkable/commit/695599f) `templates` directory is the default
+* [6579e17](https://github.com/michaeljoseph/remarkable/commit/6579e17) Reveal tests
+* [f1dff79](https://github.com/michaeljoseph/remarkable/commit/f1dff79) Refactor remark handler
+* [576d2a4](https://github.com/michaeljoseph/remarkable/commit/576d2a4) Add reveal option and command handler
+* [4948ac3](https://github.com/michaeljoseph/remarkable/commit/4948ac3) Add helper methods
+* [78201b8](https://github.com/michaeljoseph/remarkable/commit/78201b8) Refactor markdown constant to base class
+* [4950d38](https://github.com/michaeljoseph/remarkable/commit/4950d38) Refactor and rename test case
+
 ## [0.0.2](https://github.com/michaeljoseph/remarkable/compare/0.0.1...0.0.2)
 
 * [c35a20e](https://github.com/michaeljoseph/remarkable/commit/c35a20e) Require linting and lint fixes
