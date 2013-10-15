@@ -9,6 +9,7 @@ Usage:
 
 Options:
   --debug               Debug.
+  --title=<title>       The title of the presentation
 
   -h --help             Show this screen.
 """
@@ -31,12 +32,21 @@ def render_template(template_name, context):
 
 
 def render_template_directory(directory_name, context, output_directory):
+def render_template_directory(deck):
+    output_directory = deck.title
+
+    if os.path.exists(output_directory):
+        if sys.stdout.isatty():
+            if ask('%s already exists, shall I delete it?'):
+                shutil.rmtree(output_directory)
+        else:
+            shutil.rmtree(output_directory)
+
     # copy support files to output directory
     template_directory_path = (
         '%s/templates/%s' %
-        (remarkable.__path__[0], directory_name)
+        (remarkable.__path__[0], deck.presentation_type)
     )
-
     shutil.copytree(
         template_directory_path,
         output_directory,
@@ -45,8 +55,15 @@ def render_template_directory(directory_name, context, output_directory):
     # write index to output directory
     write_file(
         '%s/index.html' % output_directory,
-        render_template('%s/index.html' % directory_name, context),
+
+        render_template(
+            '%s/index.html' % deck.presentation_type,
+            dict(slides=deck.slides),
+        ),
     )
+
+    return output_directory
+
 
 
 def read_file(file_name):
@@ -69,14 +86,12 @@ def remark(arguments):
 
 
 def reveal(arguments):
-    file_name = arguments['<path-to-markdown-file>']
-    deck = Deck('title', read_file(file_name))
+    render_template_directory(Deck(
+        arguments.get('--title', 'Reveal Presentation'),
+        read_file(arguments['<path-to-markdown-file>']),
+        'reveal'
+    ))
 
-    output_directory = render_template_directory(
-        'reveal',
-        dict(slides=deck.slides),
-        arguments['<output-directory>']
-    )
 
 def main():
     arguments = docopt(__doc__, version=remarkable.__version__)
