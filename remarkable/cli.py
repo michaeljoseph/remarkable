@@ -2,14 +2,13 @@
 remarkable.
 
 Usage:
-  remarkable [options] remark <path-to-markdown-file>
-  remarkable [options] reveal <path-to-markdown-file>
+  remarkable [options] remark <path-to-markdown-file> [<title>]
+  remarkable [options] reveal <path-to-markdown-file> <title>
 
   remarkable -h | --help
 
 Options:
   --debug               Debug.
-  --title=<title>       The title of the presentation
 
   -h --help             Show this screen.
 """
@@ -95,7 +94,7 @@ def remark(arguments):
         dict(markdown=read_file(arguments['<path-to-markdown-file>'])),
     )
 
-    title = arguments['--title']
+    title = arguments.get('<title>', 'Remark Presentation')
     write_file(
         '%s.html' % (title if title else 'remark'),
         html,
@@ -104,7 +103,7 @@ def remark(arguments):
 
 def reveal(arguments):
     render_template_directory(Deck(
-        arguments.get('--title', 'Reveal Presentation'),
+        arguments.get('<title>', 'Reveal Presentation'),
         read_file(arguments['<path-to-markdown-file>']),
         'reveal'
     ))
