@@ -1,4 +1,4 @@
 __author__ = 'Michael Joseph'
 __email__ = 'michaeljoseph@gmail.com'
 __url__ = 'https://github.com/michaeljoseph/remarkable'
-__version__ = '0.1.0'
+__version__ = '0.2.0'

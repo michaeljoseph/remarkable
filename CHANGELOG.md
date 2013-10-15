@@ -1,5 +1,10 @@
 # [Changelog](https://github.com/michaeljoseph/remarkable/releases)
 
+## [0.2.0](https://github.com/michaeljoseph/remarkable/compare/0.1.0...0.2.0)
+
+* [ed4c745](https://github.com/michaeljoseph/remarkable/commit/ed4c745) Include presentation template directory
+* [1b116a5](https://github.com/michaeljoseph/remarkable/commit/1b116a5) Runtime dependency on snide
+
 ## [0.1.0](https://github.com/michaeljoseph/remarkable/compare/0.0.2...0.1.0)
 
 * [26fc527](https://github.com/michaeljoseph/remarkable/commit/26fc527) Update tests
