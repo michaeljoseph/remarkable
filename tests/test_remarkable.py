@@ -21,8 +21,8 @@ class TestRevealTestCase(BaseTestCase):
         sys.argv = [
             'remarkable',
             'reveal',
-            '--title=%s' % self.title,
             self.example_file,
+            self.title,
         ]
         cli.main()
         self.assertTrue(os.path.exists(self.presentation_index))
