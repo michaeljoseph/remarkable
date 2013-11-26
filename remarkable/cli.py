@@ -50,7 +50,7 @@ def render_template_directory(deck):
 
     if os.path.exists(output_directory):
         if sys.stdout.isatty():
-            if ask('%s already exists, shall I delete it?'):
+            if ask('%s already exists, shall I delete it?', output_directory):
                 shutil.rmtree(output_directory)
         else:
             shutil.rmtree(output_directory)
