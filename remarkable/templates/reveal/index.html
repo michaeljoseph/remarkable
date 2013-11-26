@@ -59,12 +59,13 @@
                 center: true,
 
                 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                transition: Reveal.getQueryHash().transition || 'default',
+                // default/cube/page/concave/zoom/linear/fade/none
 
                 // Optional libraries used to extend on reveal.js
                 dependencies: [
                     { 
-                        src: 'https://raw.github.com/eligrey/classList.js/master/classList.js',
+                        src: '//raw.github.com/eligrey/classList.js/master/classList.js',
                         condition: function() { return !document.body.classList; }
                     },
                     { 
@@ -73,12 +74,12 @@
                         callback: function() { hljs.initHighlightingOnLoad(); }
                     },
                     { 
-                        src: 'plugin/zoom-js/zoom.js',
+                        src: '//raw.github.com/hakimel/reveal.js/master/plugin/zoom-js/zoom.js',
                         async: true,
                         condition: function() { return !!document.body.classList; }
                     },
                     { 
-                        src: 'plugin/notes/notes.js',
+                        src: '//raw.github.com/hakimel/reveal.js/master/plugin/notes/notes.js',
                         async: true,
                         condition: function() { return !!document.body.classList; }
                      }
