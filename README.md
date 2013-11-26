@@ -11,7 +11,7 @@
 
 A mashup of http://lab.hakim.se/reveal-js and http://remarkjs.com
 
-* CLI that processes a MarkDown file and emits a HTML presentation
+* CLI that processes a MarkDown file and emits an HTML presentation
 
 ## Usage
 
