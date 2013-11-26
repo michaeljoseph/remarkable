@@ -9,6 +9,7 @@ Usage:
 
 Options:
   --debug               Debug.
+  --noinput             What it says.
 
   -h --help             Show this screen.
 """
@@ -34,8 +35,7 @@ def render_template(template_name, context):
 
 def ask(question):
     '''Display a Y/n question prompt, and return a boolean'''
-    while True:
-        print
+    if not arguments.get('--noinput', False):
         input_ = raw_input('%s [Y/n] ' % question)
         input_ = input_.strip().lower()
         if input_ in ('y', 'yes', ''):
