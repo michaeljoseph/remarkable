@@ -36,7 +36,12 @@
 
             <div class="slides">
                 {% for slide in slides %}
-                <section>{{ slide.html }}</section>
+                <section>
+                    {{ slide.html }}
+                    <aside class="notes">
+                        {{ slide.notes }}
+                    </aside>
+                </section>
                 {% endfor %}
            </div>
 
