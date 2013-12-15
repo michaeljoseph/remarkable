@@ -14,7 +14,7 @@ class TestRemarkTestCase(BaseTestCase):
 
 
 class TestRevealTestCase(BaseTestCase):
-    title = 'Application To Platform'
+    title = 'application-to-platform'
     presentation_index = '%s/index.html' % title
 
     def test_reveal(self):

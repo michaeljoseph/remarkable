@@ -9,6 +9,7 @@ Usage:
 
 Options:
   --debug               Debug.
+  --noinput             What it says.
 
   -h --help             Show this screen.
 """
@@ -22,20 +23,23 @@ from jinja2 import Environment, PackageLoader
 from snide import Deck
 
 import remarkable
+from .util import write_file, read_file
 
 log = logging.getLogger(__name__)
 
 
 def render_template(template_name, context):
+    """Render a jinja template"""
     return Environment(
         loader=PackageLoader('remarkable')
     ).get_template(template_name).render(context)
 
 
-def ask(question):
-    '''Display a Y/n question prompt, and return a boolean'''
-    while True:
-        print
+def ask(question, no_input=False):
+    """Display a Y/n question prompt, and return a boolean"""
+    if no_input:
+        return True
+    else:
         input_ = raw_input('%s [Y/n] ' % question)
         input_ = input_.strip().lower()
         if input_ in ('y', 'yes', ''):
@@ -45,12 +49,16 @@ def ask(question):
         print('Invalid selection')
 
 
-def render_template_directory(deck):
+def render_template_directory(deck, arguments):
+    """Render a template directory"""
     output_directory = deck.title
 
     if os.path.exists(output_directory):
         if sys.stdout.isatty():
-            if ask('%s already exists, shall I delete it?'):
+            if ask(
+                '%s already exists, shall I delete it?' % output_directory,
+                arguments.get('--noinput')
+            ):
                 shutil.rmtree(output_directory)
         else:
             shutil.rmtree(output_directory)
@@ -78,16 +86,6 @@ def render_template_directory(deck):
     return output_directory
 
 
-def read_file(file_name):
-    return open(file_name).read().decode('utf-8')
-
-
-def write_file(file_name, content):
-    with open(file_name, 'w') as html_file:
-        html_file.write(content.encode('utf-8'))
-    log.info('Created %s' % file_name)
-
-
 def remark(arguments):
     html = render_template(
         'remark/index.html',
@@ -102,11 +100,14 @@ def remark(arguments):
 
 
 def reveal(arguments):
-    render_template_directory(Deck(
-        arguments.get('<title>', 'Reveal Presentation'),
-        read_file(arguments['<path-to-markdown-file>']),
-        'reveal'
-    ))
+    render_template_directory(
+        Deck(
+            arguments.get('<title>', 'Reveal Presentation'),
+            read_file(arguments['<path-to-markdown-file>']),
+            'reveal'
+        ),
+        arguments,
+    )
 
 
 def main():
