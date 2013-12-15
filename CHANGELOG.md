@@ -1,5 +1,26 @@
 # [Changelog](https://github.com/michaeljoseph/remarkable/releases)
 
+## [0.2.1](https://github.com/michaeljoseph/remarkable/compare/0.2.0...0.2.1)
+
+* [33m50be64c[m travis-solo over tox
+* [33m31c2d18[m Rm output folder
+* [33ma2ea8e0[m Drop pypy for now
+* [33m55b1d8e[m Travis solo is a local dev requirement
+* [33me640af9[m Not a rest API
+* [33m59d6054[m Slide note html
+* [33me83e9df[m Protocol neutral github js cdn
+* [33m417e7a0[m Ignore travis-solo
+* [33m4fda434[m Implement no-input
+* [33m2cbafd9[m Travis solo
+* [33m0b50122[m Autoenv
+* [33mc252c17[m Correct title
+* [33md3f7f9d[m Cdn most of the assets
+* [33m321ac98[m Reveal slide notes
+* [33m73edd2a[m No input
+* [33m5de1aea[m Interpolate
+* [33m7b3d6c9[m Indefinite article ends with 'n' before a word pronounced starting with a vowel
+* [33m695ed74[m Give the project a "look"
+
 ## [0.2.0](https://github.com/michaeljoseph/remarkable/compare/0.1.0...0.2.0)
 
 * [ed4c745](https://github.com/michaeljoseph/remarkable/commit/ed4c745) Include presentation template directory
