@@ -86,17 +86,20 @@ def render_template_directory(deck, arguments):
     return output_directory
 
 
-def remark(arguments):
-    html = render_template(
-        'remark/index.html',
-        dict(markdown=read_file(arguments['<path-to-markdown-file>'])),
-    )
+def file_name_from_title(title):
+    return '%s.html' % '-'.join([word.lower() for word in title.split(' ')])
 
+
+def remark(arguments):
     title = arguments.get('<title>', 'Remark Presentation')
-    write_file(
-        '%s.html' % (title if title else 'remark'),
-        html,
+    markdown_file = arguments['<path-to-markdown-file>']
+    html = render_template(
+        'remark/index.html', {
+            'markdown': read_file(markdown_file),
+            'title': title,
+        }
     )
+    write_file(file_name_from_title(title), html)
 
 
 def reveal(arguments):

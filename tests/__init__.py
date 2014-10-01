@@ -38,6 +38,7 @@ we have business cards
 
 
 class BaseTestCase(TestCase):
+    title = 'application-to-platform'
     example_file = 'atp.md'
 
     def setUp(self):

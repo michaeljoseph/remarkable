@@ -1,5 +1,7 @@
+import io
 import sys
 import os
+import shutil
 
 from remarkable import cli
 from . import BaseTestCase
@@ -8,16 +10,17 @@ from . import BaseTestCase
 class TestRemarkTestCase(BaseTestCase):
 
     def test_remark(self):
-        sys.argv = ('remarkable remark %s' % self.example_file).split(' ')
+        cmd_line = 'remarkable remark %s %s' % (self.example_file, self.title)
+        sys.argv = cmd_line.split(' ')
         cli.main()
-        self.assertTrue(os.path.exists('remark.html'))
+        self.assertTrue(os.path.exists('application-to-platform.html'))
+        os.remove('application-to-platform.html')
 
 
 class TestRevealTestCase(BaseTestCase):
-    title = 'application-to-platform'
-    presentation_index = '%s/index.html' % title
 
     def test_reveal(self):
+        presentation_index = 'application-to-platform/index.html'
         sys.argv = [
             'remarkable',
             'reveal',
@@ -25,9 +28,6 @@ class TestRevealTestCase(BaseTestCase):
             self.title,
         ]
         cli.main()
-        self.assertTrue(os.path.exists(self.presentation_index))
-
-    def tearDown(self):
-        super(TestRevealTestCase, self).tearDown()
-        if os.path.exists(self.presentation_index):
-            os.remove(self.presentation_index)
+        self.assertTrue(os.path.exists(presentation_index))
+        self.assertTrue(self.title in io.open(presentation_index).read())
+        shutil.rmtree('application-to-platform')
