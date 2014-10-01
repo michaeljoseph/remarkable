@@ -1,5 +1,10 @@
 # [Changelog](https://github.com/michaeljoseph/remarkable/releases)
 
+## [0.2.2](https://github.com/michaeljoseph/remarkable/compare/0.2.1...0.2.2)
+
+* [e2f38d1](https://github.com/michaeljoseph/remarkable/commit/e2f38d1) Test and lint aliases
+* [60b9575](https://github.com/michaeljoseph/remarkable/commit/60b9575) Generate filename from title and apply to template
+
 ## [0.2.1](https://github.com/michaeljoseph/remarkable/compare/0.2.0...0.2.1)
 
 * [33m50be64c[m travis-solo over tox
