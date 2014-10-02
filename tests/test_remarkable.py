@@ -14,7 +14,7 @@ log = logging.getLogger(__name__)
 class TestRemarkTestCase(BaseTestCase):
 
     def test_remark(self):
-        presentation_index = 'application-to-platform/index.html'
+        presentation_index = '%s/index.html' % self.directory_name
         sys.argv = [
             'remarkable',
             'remark',
@@ -25,7 +25,6 @@ class TestRemarkTestCase(BaseTestCase):
         self.assertTrue(os.path.exists(presentation_index))
         presentation_contents = io.open(presentation_index).read()
         self.assertTrue(self.title in presentation_contents)
-        log.debug(presentation_contents)
         self.assertTrue('michaeljoseph' in presentation_contents)
         shutil.rmtree('application-to-platform')
 
