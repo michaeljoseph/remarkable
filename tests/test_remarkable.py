@@ -1,10 +1,14 @@
 import io
 import sys
+import logging
 import os
 import shutil
 
 from remarkable import cli
 from . import BaseTestCase
+
+
+log = logging.getLogger(__name__)
 
 
 class TestRemarkTestCase(BaseTestCase):
@@ -21,7 +25,8 @@ class TestRemarkTestCase(BaseTestCase):
         self.assertTrue(os.path.exists(presentation_index))
         presentation_contents = io.open(presentation_index).read()
         self.assertTrue(self.title in presentation_contents)
-        self.assertTrue('excuses' in presentation_contents)
+        log.debug(presentation_contents)
+        self.assertTrue('michaeljoseph' in presentation_contents)
         shutil.rmtree('application-to-platform')
 
 
