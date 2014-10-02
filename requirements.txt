@@ -12,3 +12,4 @@ sphinx-bootstrap-theme < 1.0.0
 testtube < 1.0.0
 travis-solo < 1.0.0
 unittest2 < 1.0.0
+wheel < 1.0.0
