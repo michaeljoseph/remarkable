@@ -41,6 +41,7 @@ class BaseTestCase(TestCase):
     title = 'Application To Platform'
     directory_name = 'application-to-platform'
     example_file = 'atp.md'
+    presentation_index = '%s/index.html' % directory_name
 
     def setUp(self):
         with open(self.example_file, 'w') as f:

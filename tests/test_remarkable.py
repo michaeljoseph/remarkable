@@ -14,7 +14,6 @@ log = logging.getLogger(__name__)
 class TestRemarkTestCase(BaseTestCase):
 
     def test_remark(self):
-        presentation_index = '%s/index.html' % self.directory_name
         sys.argv = [
             'remarkable',
             'remark',
@@ -22,17 +21,15 @@ class TestRemarkTestCase(BaseTestCase):
             self.title,
         ]
         cli.main()
-        self.assertTrue(os.path.exists(presentation_index))
-        presentation_contents = io.open(presentation_index).read()
+        self.assertTrue(os.path.exists(self.presentation_index))
+        presentation_contents = io.open(self.presentation_index).read()
         self.assertTrue(self.title in presentation_contents)
-        self.assertTrue('michaeljoseph' in presentation_contents)
-        shutil.rmtree('application-to-platform')
+        shutil.rmtree(self.directory_name)
 
 
 class TestRevealTestCase(BaseTestCase):
 
     def test_reveal(self):
-        presentation_index = 'application-to-platform/index.html'
         sys.argv = [
             'remarkable',
             'reveal',
@@ -40,6 +37,7 @@ class TestRevealTestCase(BaseTestCase):
             self.title,
         ]
         cli.main()
-        self.assertTrue(os.path.exists(presentation_index))
-        self.assertTrue(self.title in io.open(presentation_index).read())
-        shutil.rmtree('application-to-platform')
+        self.assertTrue(os.path.exists(self.presentation_index))
+        presentation_contents = io.open(self.presentation_index).read()
+        self.assertTrue(self.title in presentation_contents)
+        shutil.rmtree(self.directory_name)
