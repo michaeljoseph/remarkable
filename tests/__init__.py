@@ -38,8 +38,10 @@ we have business cards
 
 
 class BaseTestCase(TestCase):
-    title = 'application-to-platform'
+    title = 'Application To Platform'
+    directory_name = 'application-to-platform'
     example_file = 'atp.md'
+    presentation_index = '%s/index.html' % directory_name
 
     def setUp(self):
         with open(self.example_file, 'w') as f:

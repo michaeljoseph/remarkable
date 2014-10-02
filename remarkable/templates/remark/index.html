@@ -1,13 +1,11 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>{{ title }}</title>
+    <link href="css/Droid-Serif.css" rel="stylesheet" />
+    <link href="css/Yanone-Kaffeesatz.css" rel="stylesheet" />
     <style type="text/css">
-      @import url(http://fonts.googleapis.com/css?family=Droid+Serif);
-      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-
       body {
         font-family: 'Droid Serif';
         font-size: 30px;
@@ -121,13 +119,12 @@
   </head>
   <body>
     <textarea id="source">
-{{ markdown }}
+{{ text }}
     </textarea>
-    <script src="http://gnab.github.com/remark/downloads/remark-0.5.5.min.js" type="text/javascript"></script>
+    <script src="js/remark-0.5.5.min.js" type="text/javascript"></script>
     <script type="text/javascript">
       var hljs = remark.highlighter.engine;
     </script>
-    <script src="remark.language.js" type="text/javascript"></script>
     <script type="text/javascript">
       var slideshow = remark.create({
           ratio: '16:9',

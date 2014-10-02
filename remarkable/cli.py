@@ -28,11 +28,8 @@ from .util import write_file, read_file
 log = logging.getLogger(__name__)
 
 
-def render_template(template_name, context):
-    """Render a jinja template"""
-    return Environment(
-        loader=PackageLoader('remarkable')
-    ).get_template(template_name).render(context)
+def dir_name_from_title(title):
+    return '-'.join([word.lower() for word in title.split(' ')])
 
 
 def ask(question, no_input=False):
@@ -49,9 +46,16 @@ def ask(question, no_input=False):
         print('Invalid selection')
 
 
+def render_template(template_name, context):
+    """Render a jinja template"""
+    return Environment(
+        loader=PackageLoader('remarkable')
+    ).get_template(template_name).render(context)
+
+
 def render_template_directory(deck, arguments):
     """Render a template directory"""
-    output_directory = deck.title
+    output_directory = dir_name_from_title(deck.title)
 
     if os.path.exists(output_directory):
         if sys.stdout.isatty():
@@ -73,44 +77,40 @@ def render_template_directory(deck, arguments):
         output_directory,
     )
 
-    # write index to output directory
-    write_file(
-        '%s/index.html' % output_directory,
+    # copy resources
+    if os.path.exists('resources'):
+        log.info('Copying resources')
+        shutil.copytree('resources', '%s/resources' % output_directory)
+    else:
+        log.info('No resources to copy')
 
-        render_template(
-            '%s/index.html' % deck.presentation_type,
-            dict(slides=deck.slides),
-        ),
-    )
+    # render template
+    template_filename = '%s/index.html' % deck.presentation_type
+    html = render_template(template_filename, deck.json)
+
+    # write index to output directory
+    index_filename = '%s/index.html' % output_directory
+    write_file(index_filename, html)
 
     return output_directory
 
 
-def file_name_from_title(title):
-    return '%s.html' % '-'.join([word.lower() for word in title.split(' ')])
-
-
 def remark(arguments):
-    title = arguments.get('<title>', 'Remark Presentation')
-    markdown_file = arguments['<path-to-markdown-file>']
-    html = render_template(
-        'remark/index.html', {
-            'markdown': read_file(markdown_file),
-            'title': title,
-        }
+    deck = Deck(
+        arguments.get('<title>', 'Remark Presentation'),
+        read_file(arguments['<path-to-markdown-file>']),
+        'remark'
     )
-    write_file(file_name_from_title(title), html)
+    render_template_directory(deck, arguments)
 
 
 def reveal(arguments):
-    render_template_directory(
-        Deck(
-            arguments.get('<title>', 'Reveal Presentation'),
-            read_file(arguments['<path-to-markdown-file>']),
-            'reveal'
-        ),
-        arguments,
+    deck = Deck(
+        arguments.get('<title>', 'Reveal Presentation'),
+        read_file(arguments['<path-to-markdown-file>']),
+        'reveal'
     )
+    render_template_directory(deck, arguments)
 
 
 def main():

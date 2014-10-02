@@ -1,5 +1,6 @@
 import io
 import sys
+import logging
 import os
 import shutil
 
@@ -7,20 +8,28 @@ from remarkable import cli
 from . import BaseTestCase
 
 
+log = logging.getLogger(__name__)
+
+
 class TestRemarkTestCase(BaseTestCase):
 
     def test_remark(self):
-        cmd_line = 'remarkable remark %s %s' % (self.example_file, self.title)
-        sys.argv = cmd_line.split(' ')
+        sys.argv = [
+            'remarkable',
+            'remark',
+            self.example_file,
+            self.title,
+        ]
         cli.main()
-        self.assertTrue(os.path.exists('application-to-platform.html'))
-        os.remove('application-to-platform.html')
+        self.assertTrue(os.path.exists(self.presentation_index))
+        presentation_contents = io.open(self.presentation_index).read()
+        self.assertTrue(self.title in presentation_contents)
+        shutil.rmtree(self.directory_name)
 
 
 class TestRevealTestCase(BaseTestCase):
 
     def test_reveal(self):
-        presentation_index = 'application-to-platform/index.html'
         sys.argv = [
             'remarkable',
             'reveal',
@@ -28,6 +37,7 @@ class TestRevealTestCase(BaseTestCase):
             self.title,
         ]
         cli.main()
-        self.assertTrue(os.path.exists(presentation_index))
-        self.assertTrue(self.title in io.open(presentation_index).read())
-        shutil.rmtree('application-to-platform')
+        self.assertTrue(os.path.exists(self.presentation_index))
+        presentation_contents = io.open(self.presentation_index).read()
+        self.assertTrue(self.title in presentation_contents)
+        shutil.rmtree(self.directory_name)
