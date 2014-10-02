@@ -1,5 +1,15 @@
 # [Changelog](https://github.com/michaeljoseph/remarkable/releases)
 
+## [0.3.0](https://github.com/michaeljoseph/remarkable/compare/0.2.2...0.3.0)
+
+* [260b840](https://github.com/michaeljoseph/remarkable/commit/260b840) Add wheel
+* [0ad816b](https://github.com/michaeljoseph/remarkable/commit/0ad816b) Refactor and limit verification
+* [f408ec6](https://github.com/michaeljoseph/remarkable/commit/f408ec6) Fix test fixtures
+* [0142402](https://github.com/michaeljoseph/remarkable/commit/0142402) Debug test failure
+* [73fe399](https://github.com/michaeljoseph/remarkable/commit/73fe399) Remark and reveal render template directories
+* [953397c](https://github.com/michaeljoseph/remarkable/commit/953397c) Update template references
+* [5d299eb](https://github.com/michaeljoseph/remarkable/commit/5d299eb) Add static assets
+
 ## [0.2.2](https://github.com/michaeljoseph/remarkable/compare/0.2.1...0.2.2)
 
 * [e2f38d1](https://github.com/michaeljoseph/remarkable/commit/e2f38d1) Test and lint aliases
