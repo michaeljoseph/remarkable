@@ -10,11 +10,19 @@ from . import BaseTestCase
 class TestRemarkTestCase(BaseTestCase):
 
     def test_remark(self):
-        cmd_line = 'remarkable remark %s %s' % (self.example_file, self.title)
-        sys.argv = cmd_line.split(' ')
+        presentation_index = 'application-to-platform/index.html'
+        sys.argv = [
+            'remarkable',
+            'remark',
+            self.example_file,
+            self.title,
+        ]
         cli.main()
-        self.assertTrue(os.path.exists('application-to-platform.html'))
-        os.remove('application-to-platform.html')
+        self.assertTrue(os.path.exists(presentation_index))
+        presentation_contents = io.open(presentation_index).read()
+        self.assertTrue(self.title in presentation_contents)
+        self.assertTrue('excuses' in presentation_contents)
+        shutil.rmtree('application-to-platform')
 
 
 class TestRevealTestCase(BaseTestCase):
