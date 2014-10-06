@@ -1,5 +1,9 @@
 # [Changelog](https://github.com/michaeljoseph/remarkable/releases)
 
+## [0.3.1](https://github.com/michaeljoseph/remarkable/compare/0.3.0...0.3.1)
+
+* [4e69b29](https://github.com/michaeljoseph/remarkable/commit/4e69b29) Remark 0.5.6 for https://github.com/gnab/remark/issues/50
+
 ## [0.3.0](https://github.com/michaeljoseph/remarkable/compare/0.2.2...0.3.0)
 
 * [260b840](https://github.com/michaeljoseph/remarkable/commit/260b840) Add wheel
