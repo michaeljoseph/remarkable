@@ -24,4 +24,10 @@ setup(
     },
     test_suite='nose.collector',
     license=open('LICENSE').read(),
+    classifiers=[
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+    ],
 )
