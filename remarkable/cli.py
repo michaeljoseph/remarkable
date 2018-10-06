@@ -37,7 +37,7 @@ def ask(question, no_input=False):
     if no_input:
         return True
     else:
-        input_ = raw_input('%s [Y/n] ' % question)
+        input_ = input('%s [Y/n] ' % question)
         input_ = input_.strip().lower()
         if input_ in ('y', 'yes', ''):
             return True
